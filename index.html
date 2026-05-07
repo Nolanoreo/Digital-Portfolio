@@ -22,11 +22,17 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html, body {
+    width: 100%;
+    min-height: 100%;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--deep);
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   /* HEADER */
@@ -35,6 +41,7 @@
     position: relative;
     overflow: hidden;
     min-height: 320px;
+    width: 100%;
     display: flex;
     align-items: flex-end;
   }
@@ -130,13 +137,14 @@
 
   /* SECTIONS */
   .wrapper {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    width: 100%;
+    background: var(--deep);
   }
 
-  section {
-    padding: 3.5rem 0;
+  .wrapper > section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
     border-bottom: 1px solid rgba(77,184,164,0.1);
   }
 
@@ -293,6 +301,7 @@
     letter-spacing: 0.1em;
     font-weight: 300;
     border-top: 1px solid rgba(77,184,164,0.1);
+    width: 100%;
   }
 
   footer em { color: var(--seafoam); font-style: normal; }
@@ -332,7 +341,7 @@
   <section id="about">
     <span class="section-tag">🌊 About</span>
     <h2>Hello, I'm Nolan</h2>
-    <p>Hello! My name is Nolan Runge. I am currently a Junior enrolled at Patrick Henry High School. I am passionate about Marine Biology.
+    <p>Hello! My name is Nolan Runge. I am passionate about Marine Biology.
     Welcome to my portfolio website!</p>
   </section>
 
@@ -351,7 +360,7 @@
       <div class="card">
         <div class="card-icon">📁</div>
         <h3>Project Two</h3>
-        <p>[Brief description] <a href="[link to project repository]" target="_blank">View repository →</a></p>
+        <p>Another interactive game, which you roll for chances of getting different troops from clash Royale! Play as your chosen troop and interact with the game. <a href="https://github.com/Nolanoreo/Winter-Project-group-A-" target="_blank">View repository →</a></p>
       </div>
     </div>
   </section>
