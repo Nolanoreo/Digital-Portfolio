@@ -1,272 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Webpage Title (will show on tab) -->
-    <title>Professional Portfolio</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nolan Runge | Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
-        :root {
-            --navy: #0d1f3c;
-            --navy-light: #162a50;
-            --creme: #f5f0e8;
-            --creme-dark: #e8e0d0;
-            --gold: #c9a84c;
-            --gold-light: #e2c97e;
-            --text-dark: #0d1f3c;
-            --text-mid: #3a4a62;
-        }
+  :root {
+    --deep: #0a1628;
+    --ocean: #0e2a45;
+    --wave: #1a6a8a;
+    --seafoam: #4db8a4;
+    --seafoam-dim: #3a9488;
+    --card-bg: #0f2035;
+    --card-border: rgba(77,184,164,0.15);
+    --text: #e8f0f5;
+    --muted: #7fafc0;
+    --sand: #c9dde6;
+  }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Basic styling for the page */
-        body {
-            font-family: 'Jost', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            background: var(--creme);
-            color: var(--text-dark);
-        }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--deep);
+    color: var(--text);
+    line-height: 1.7;
+  }
 
-        header {
-            background: var(--navy);
-            color: var(--creme);
-            padding: 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  /* HEADER */
+  header {
+    background: #060f1e;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    align-items: flex-end;
+  }
 
-        header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.12) 0%, transparent 70%),
-                radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
-            pointer-events: none;
-        }
+  .wave-bg {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    opacity: 0.2;
+  }
 
-        .header-inner {
-            position: relative;
-            z-index: 1;
-            padding: 3.5rem 2rem 3rem;
-        }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(77,184,164,0.15);
+    animation: rise linear infinite;
+  }
 
-        header h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            font-size: clamp(2rem, 5vw, 3.4rem);
-            color: var(--creme);
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
-        }
+  @keyframes rise {
+    0%   { transform: translateY(0) scale(1); opacity: 0.7; }
+    100% { transform: translateY(-400px) scale(1.4); opacity: 0; }
+  }
 
-        header h1 em {
-            font-style: italic;
-            color: var(--gold-light);
-        }
+  .header-content {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem 3rem 3rem;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+  }
 
-        nav {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0;
-        }
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--seafoam);
+    margin-bottom: 0.75rem;
+  }
 
-        nav a {
-            color: rgba(245,240,232,0.75);
-            text-decoration: none;
-            font-size: 0.78rem;
-            font-weight: 400;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            padding: 0.45rem 1.1rem;
-            border: 1px solid rgba(201,168,76,0.35);
-            margin-right: -1px;
-            transition: all 0.22s ease;
-        }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
 
-        nav a:first-child { border-radius: 2px 0 0 2px; }
-        nav a:last-child  { border-radius: 0 2px 2px 0; margin-right: 0; }
+  header h1 span {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--seafoam);
+  }
 
-        nav a:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--navy);
-        }
+  .subtitle {
+    color: rgba(200,225,235,0.45);
+    font-size: 0.92rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    margin-bottom: 2rem;
+  }
 
-        /* Gold divider under header */
-        .gold-rule {
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, transparent 100%);
-        }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-        section {
-            padding: 3rem 2rem;
-            border-bottom: 1px solid var(--creme-dark);
-            max-width: 860px;
-            margin: 0 auto;
-        }
+  nav a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(200,225,235,0.65);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    border: 1px solid rgba(77,184,164,0.3);
+    transition: all 0.2s;
+  }
 
-        .section-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+  nav a:hover {
+    background: var(--seafoam);
+    border-color: var(--seafoam);
+    color: var(--deep);
+  }
 
-        .section-label::after {
-            content: '';
-            display: block;
-            height: 1px;
-            width: 40px;
-            background: var(--gold);
-            opacity: 0.5;
-        }
+  .stripe {
+    height: 3px;
+    background: linear-gradient(90deg, var(--seafoam), var(--wave), transparent);
+  }
 
-        section h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            font-size: 2rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-        }
+  /* SECTIONS */
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-        section p {
-            font-weight: 300;
-            font-size: 0.97rem;
-            color: var(--text-mid);
-            margin-bottom: 1rem;
-        }
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid rgba(77,184,164,0.1);
+  }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0.5rem;
-        }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--seafoam);
+    background: rgba(77,184,164,0.1);
+    border: 1px solid rgba(77,184,164,0.25);
+    padding: 0.25rem 0.85rem;
+    border-radius: 40px;
+    margin-bottom: 1rem;
+  }
 
-        ul li {
-            font-weight: 300;
-            font-size: 0.95rem;
-            color: var(--text-mid);
-            padding: 0.75rem 1rem;
-            border-left: 3px solid var(--gold);
-            background: white;
-            margin-bottom: 0.6rem;
-            border-radius: 0 2px 2px 0;
-            transition: box-shadow 0.2s ease;
-        }
+  section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
 
-        ul li:hover {
-            box-shadow: 0 4px 16px rgba(13,31,60,0.08);
-        }
+  section p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 600px;
+  }
 
-        a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
 
-        a:hover { color: var(--navy); }
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--card-border);
+  }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--navy);
-            color: rgba(245,240,232,0.55);
-            font-size: 0.82rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-        }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--seafoam);
+  }
 
-        footer span { color: var(--gold); }
-    </style>
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    border-color: rgba(77,184,164,0.35);
+  }
+
+  .card-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: none;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--seafoam);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* CREDENTIALS */
+  .cred-list {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .cred-item {
+    background: var(--card-bg);
+    border-left: 3px solid var(--seafoam);
+    border-radius: 0 8px 8px 0;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+    border-top: 1px solid var(--card-border);
+    border-right: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    transition: border-color 0.2s;
+  }
+
+  .cred-item:hover { border-color: rgba(77,184,164,0.35); }
+
+  /* CONTACT */
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.88rem;
+    color: var(--seafoam);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    background: var(--seafoam);
+    color: var(--deep);
+    border-color: var(--seafoam);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #060f1e;
+    color: rgba(200,225,235,0.3);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    border-top: 1px solid rgba(77,184,164,0.1);
+  }
+
+  footer em { color: var(--seafoam); font-style: normal; }
+</style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="header-inner">
-            <h1>Welcome to <em>My Portfolio</em></h1>
-            <nav>
-                <a href="#about">About Me</a>
-                <a href="#projects">Projects</a>
-                <a href="#credentials">Credentials</a>
-                <a href="#contact">Contact Info</a>
-            </nav>
-        </div>
-    </header>
-    <div class="gold-rule"></div>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <p class="section-label">About Me</p>
-        <h2>Hello, I'm Nolan</h2>
-        <p>
-            <!-- Add a brief introduction about yourself here -->
-            My name is Nolan Runge. I am passionate about Marine Biology. I am currently a student at Patrick Henry Highschool, and I aspire to go to UCSD for future education.
-            Welcome to my portfolio website!
-        </p>
-    </section>
+<header>
+  <div class="bubble" style="width:18px;height:18px;left:8%;animation-duration:7s;animation-delay:0s;bottom:-20px"></div>
+  <div class="bubble" style="width:10px;height:10px;left:22%;animation-duration:5s;animation-delay:1.5s;bottom:-20px"></div>
+  <div class="bubble" style="width:24px;height:24px;left:55%;animation-duration:9s;animation-delay:0.5s;bottom:-20px"></div>
+  <div class="bubble" style="width:14px;height:14px;left:75%;animation-duration:6s;animation-delay:2s;bottom:-20px"></div>
+  <div class="bubble" style="width:8px;height:8px;left:88%;animation-duration:4s;animation-delay:1s;bottom:-20px"></div>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <p class="section-label">Work</p>
-        <h2>Projects</h2>
-        <p>
-            <!-- Add a list or description of your projects here -->
-            Here are some of the projects I have worked on:
-        </p>
-        <ul>
-            <li>Project 1: The interactive egg hatching game that is inspired by the roblox game Adopt Me. In order to cure peoples boredom, a game was needed to be created to fix this upcoming problem. <a href="https://github.com/phAPCSA25period1/final-project-Nolanoreo" target="_blank">[Project repository]</a></li>
-            <li>Project 2: [Brief description] <a href="[link to project repository]" target="_blank">[Project repository]</a></li>
-        </ul>
-    </section>
+  <svg class="wave-bg" viewBox="0 0 1200 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,80 C200,160 400,0 600,80 C800,160 1000,20 1200,80 L1200,180 L0,180 Z" fill="#4db8a4"/>
+    <path d="M0,120 C300,60 500,180 800,100 C950,60 1100,160 1200,120 L1200,180 L0,180 Z" fill="#1a6a8a" opacity="0.6"/>
+  </svg>
 
-    <!-- Credentials Section -->
-    <section id="credentials">
-        <p class="section-label">Credentials</p>
-        <h2>Certifications & Achievements</h2>
-        <p>
-            <!-- Add your credentials, certifications, or achievements here -->
-            I have earned the following certifications and achievements:
-        </p>
-        <ul>
-            <li>Certification 1: [Details]</li>
-            <li>Certification 2: [Details]</li>
-            <li>Certification 3: [Details]</li>
-            <!-- Add images of your certification digital badges -->
-        </ul>
-    </section>
+  <div class="header-content">
+    <p class="eyebrow">🐚 Digital Portfolio</p>
+    <h1>Nolan <span>Runge</span></h1>
+    <p class="subtitle">Marine Biology · Researcher · Explorer of the Deep</p>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div class="stripe"></div>
 
-    <!-- Contact Info Section -->
-    <section id="contact">
-        <p class="section-label">Contact</p>
-        <h2>Get in Touch</h2>
-        <p>
-            <!-- Add your contact information here -->
-            Feel free to reach out to me:
-        </p>
-        <ul>
-            <li>Email: <a href="mailto:Bhnolan2009@gmail.com">Bhnolan2009@gmail.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/nolan-runge-850253405/" target="_blank">linkedin.com/in/nolan-runge-850253405</a></li>
-            <li>Resume: <a href="https://docs.google.com/document/d/1wKl9haR7yFwyVQUd73w18c5udGyQCa4xJAK4d3zg8-w/edit?tab=t.0" target="_blank">Download Resume</a></li>
-        </ul>
-    </section>
+<div class="wrapper">
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2026 <span>Nolan Runge</span>. All rights reserved.</p>
-    </footer>
+  <!-- About Me Section -->
+  <section id="about">
+    <span class="section-tag">🌊 About</span>
+    <h2>Hello, I'm Nolan</h2>
+    <p>Hello! My name is Nolan Runge. I am currently a Junior enrolled at Patrick Henry High School. I am passionate about Marine Biology.
+    Welcome to my portfolio website!</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <span class="section-tag">🔬 Work</span>
+    <h2>Projects</h2>
+    <p>Here are some of the projects I have worked on:</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🥚</div>
+        <h3>Egg Hatching Game</h3>
+        <p>An interactive egg hatching game inspired by Roblox's Adopt Me — built to cure boredom with playful mechanics.</p>
+        <a href="https://github.com/phAPCSA25period1/final-project-Nolanoreo" target="_blank">View repository →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">📁</div>
+        <h3>Project Two</h3>
+        <p>[Brief description] <a href="[link to project repository]" target="_blank">View repository →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Section -->
+  <section id="credentials">
+    <span class="section-tag">🏅 Credentials</span>
+    <h2>Certifications & Achievements</h2>
+    <p>I have earned the following certifications and achievements:</p>
+    <div class="cred-list">
+      <div class="cred-item">Certification 1: [Details]</div>
+      <div class="cred-item">Certification 2: [Details]</div>
+      <div class="cred-item">Certification 3: [Details]</div>
+      <!-- Add images of your certification digital badges -->
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section id="contact">
+    <span class="section-tag">📬 Contact</span>
+    <h2>Get in Touch</h2>
+    <p>Feel free to reach out — I'm always open to new opportunities and conversations.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:Bhnolan2009@gmail.com">✉️ Bhnolan2009@gmail.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/nolan-runge-850253405/" target="_blank">🔗 LinkedIn Profile</a>
+      <a class="contact-link" href="https://docs.google.com/document/d/1wKl9haR7yFwyVQUd73w18c5udGyQCa4xJAK4d3zg8-w/edit?tab=t.0" target="_blank">🐙 Resume</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer Section -->
+<footer>
+  &copy; 2026 <em>Nolan Runge</em> · All rights reserved
+</footer>
+
 </body>
 </html>
